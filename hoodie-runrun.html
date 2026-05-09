@@ -198,6 +198,51 @@
 
     .buy-btn:hover { opacity: 0.75; }
 
+    /* ── Size guide ── */
+    .size-guide {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    .size-guide table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+    }
+
+    .size-guide th,
+    .size-guide td {
+      text-align: center;
+      padding: 0.4rem 0.2rem;
+      color: #555;
+    }
+
+    .size-guide th {
+      color: #999;
+      font-weight: normal;
+      padding-bottom: 0.6rem;
+    }
+
+    .size-guide .row-label {
+      text-align: left;
+      color: #999;
+      letter-spacing: 0.1em;
+    }
+
+    .size-guide tr + tr td {
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .size-unit {
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      color: #bbb;
+      margin-top: 0.75rem;
+      text-align: right;
+    }
+
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -275,6 +320,36 @@
         </div>
 
         <a class="buy-btn" href="#TODO_MERCADOPAGO_LINK" id="buy-btn">comprar</a>
+
+        <div class="size-guide">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>XS</th>
+                <th>S</th>
+                <th>M</th>
+                <th>L</th>
+                <th>XL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">largo</td>
+                <td>64</td><td>66</td><td>68</td><td>70</td><td>72</td>
+              </tr>
+              <tr>
+                <td class="row-label">pecho</td>
+                <td>88</td><td>94</td><td>100</td><td>106</td><td>112</td>
+              </tr>
+              <tr>
+                <td class="row-label">manga</td>
+                <td>61</td><td>62</td><td>63</td><td>64</td><td>65</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="size-unit">medidas en cm</p>
+        </div>
       </div>
 
     </div>
