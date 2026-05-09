@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hoodie run run — ritmoeterno</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #fff;
+      color: #111;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .logo {
+      display: inline-block;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+
+    nav a { color: #111; text-decoration: none; }
+    nav a:hover { color: #999; }
+
+    /* ── Product layout ── */
+    .product-page {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 1080px;
+      margin: 3rem auto 6rem;
+      padding: 0 2rem;
+      align-items: start;
+    }
+
+    /* ── Gallery ── */
+    .gallery-main {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .gallery-thumbs button {
+      flex: 1;
+      aspect-ratio: 1 / 1;
+      border: 1px solid transparent;
+      padding: 0;
+      cursor: pointer;
+      overflow: hidden;
+      background: none;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-thumbs button.active {
+      opacity: 1;
+      border-color: #111;
+    }
+
+    .gallery-thumbs button:hover { opacity: 0.75; }
+
+    .gallery-thumbs button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Details ── */
+    .product-details {
+      padding-top: 0.25rem;
+    }
+
+    .product-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      font-weight: normal;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .product-desc {
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+      color: #555;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .product-price {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
+    }
+
+    .field-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      color: #999;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── Size selector ── */
+    .size-selector {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .size-btn {
+      width: 2.6rem;
+      height: 2.6rem;
+      border: 1px solid #ddd;
+      background: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      cursor: not-allowed;
+      color: #ccc;
+      position: relative;
+    }
+
+    .size-btn.available {
+      color: #111;
+      border-color: #111;
+      cursor: pointer;
+    }
+
+    .size-btn.available.selected,
+    .size-btn.available:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .size-btn.agotado::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: #ddd;
+    }
+
+    /* ── Buy button ── */
+    .buy-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: #111;
+      color: #fff;
+      border: none;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .buy-btn:hover { opacity: 0.75; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+
+    footer a { color: #bbb; text-decoration: none; }
+    footer a:hover { color: #111; }
+
+    .footer-symbol {
+      display: block;
+      margin: 0 auto 1rem;
+      height: 18px;
+      width: auto;
+      opacity: 0.35;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .product-page {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="/"><img src="/images/wordmark.png" alt="ritmoeterno"></a>
+    <nav>
+      <a href="/">shop</a>
+      <a href="/lookbook.html">lookbook</a>
+      <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="product-page">
+
+      <div class="gallery">
+        <div class="gallery-main">
+          <img id="main-img" src="/images/products/runrun-1.jpg" alt="hoodie run run">
+        </div>
+        <div class="gallery-thumbs">
+          <button class="active" onclick="setImg(this, '/images/products/runrun-1.jpg')">
+            <img src="/images/products/runrun-1.jpg" alt="">
+          </button>
+          <button onclick="setImg(this, '/images/products/runrun-2.jpg')">
+            <img src="/images/products/runrun-2.jpg" alt="">
+          </button>
+          <button onclick="setImg(this, '/images/products/runrun-3.jpg')">
+            <img src="/images/products/runrun-3.jpg" alt="">
+          </button>
+        </div>
+      </div>
+
+      <div class="product-details">
+        <h1 class="product-title">hoodie run run</h1>
+        <p class="product-desc">hoodie negro run run. todo bien si no corres.</p>
+        <p class="product-price">$33.666 CLP</p>
+
+        <p class="field-label">talla</p>
+        <div class="size-selector">
+          <button class="size-btn agotado" disabled>XS</button>
+          <button class="size-btn agotado" disabled>S</button>
+          <button class="size-btn agotado" disabled>M</button>
+          <button class="size-btn available selected" onclick="selectSize(this)">L</button>
+          <button class="size-btn agotado" disabled>XL</button>
+        </div>
+
+        <a class="buy-btn" href="#TODO_MERCADOPAGO_LINK" id="buy-btn">comprar</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <img class="footer-symbol" src="/images/logo-symbol.png" alt="">
+    <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
+    &nbsp;·&nbsp; © 2026 ritmoeterno
+  </footer>
+
+  <script>
+    function setImg(btn, src) {
+      document.getElementById('main-img').src = src;
+      document.querySelectorAll('.gallery-thumbs button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function selectSize(btn) {
+      document.querySelectorAll('.size-btn.available').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
+  </script>
+
+</body>
+</html>
