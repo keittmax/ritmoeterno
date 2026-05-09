@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritmo Eterno</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --white: #f5f5f0;
+      --gray: #888;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: var(--white);
+      color: var(--black);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: normal;
+      line-height: 1.6;
+    }
+
+    nav {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      line-height: 2;
+      text-align: right;
+    }
+
+    nav a {
+      display: block;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--gray);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2.5rem;
+    }
+
+    .center {
+      text-align: center;
+      max-width: 480px;
+    }
+
+    .wordmark {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: normal;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-transform: uppercase;
+      font-family: 'Courier New', Courier, monospace;
+      margin-bottom: 2rem;
+    }
+
+    .tagline {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .cta {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: lowercase;
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .cta:hover {
+      color: var(--gray);
+      border-color: var(--gray);
+    }
+
+    footer {
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--gray);
+      text-transform: lowercase;
+    }
+
+    footer a {
+      color: var(--gray);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--black);
+    }
+
+    @media (max-width: 540px) {
+      header {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      nav {
+        text-align: left;
+      }
+
+      main {
+        padding: 2rem 1.5rem;
+      }
+
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      ritmo eterno<br>
+      <span style="color: var(--gray);">— próximamente</span>
+    </div>
+    <nav>
+      <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram →</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="center">
+      <h1 class="wordmark">Ritmo Eterno</h1>
+      <p class="tagline">we're not death yet</p>
+      <a class="cta" href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">seguir en instagram</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>ritmoeterno.com</span>
+    <span>© 2026</span>
+  </footer>
+
+</body>
+</html>
