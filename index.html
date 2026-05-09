@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,114 +10,119 @@
     :root {
       --black: #0f0f0f;
       --white: #f5f5f0;
-      --gray: #888;
-    }
-
-    html, body {
-      height: 100%;
+      --gray: #999;
+      --line: #e0e0db;
     }
 
     body {
       font-family: 'Courier New', Courier, monospace;
       background: var(--white);
       color: var(--black);
-      display: flex;
-      flex-direction: column;
       min-height: 100vh;
     }
 
+    /* ── Header ── */
     header {
-      padding: 2rem 2.5rem;
+      padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 10;
     }
 
     .logo {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: normal;
-      line-height: 1.6;
+      text-decoration: none;
+      color: var(--black);
     }
 
     nav {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
+      display: flex;
+      gap: 2rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
       text-transform: lowercase;
-      line-height: 2;
-      text-align: right;
     }
 
     nav a {
-      display: block;
       color: var(--black);
       text-decoration: none;
     }
 
-    nav a:hover {
-      color: var(--gray);
-    }
+    nav a:hover { color: var(--gray); }
 
+    /* ── Grid ── */
     main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2.5rem;
+      padding: 0;
     }
 
-    .center {
-      text-align: center;
-      max-width: 480px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
     }
 
-    .wordmark {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: normal;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      text-transform: uppercase;
-      font-family: 'Courier New', Courier, monospace;
-      margin-bottom: 2rem;
+    .product {
+      background: var(--white);
     }
 
-    .tagline {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 3rem;
-      line-height: 1.8;
+    .product-image {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #ebebeb;
     }
 
-    .cta {
-      display: inline-block;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.4s ease;
+    }
+
+    .product:hover .product-image img {
+      opacity: 0.85;
+    }
+
+    .product-info {
+      padding: 0.8rem 1rem 1.1rem;
+    }
+
+    .product-name {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
       text-transform: lowercase;
-      color: var(--black);
-      text-decoration: none;
-      border-bottom: 1px solid var(--black);
-      padding-bottom: 2px;
-      transition: color 0.15s, border-color 0.15s;
+      font-weight: normal;
+      margin-bottom: 0.25rem;
     }
 
-    .cta:hover {
+    .product-status {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
       color: var(--gray);
-      border-color: var(--gray);
     }
 
+    /* ── Footer ── */
     footer {
-      padding: 2rem 2.5rem;
+      padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.12em;
       color: var(--gray);
       text-transform: lowercase;
+      border-top: 1px solid var(--line);
+      margin-top: 1px;
     }
 
     footer a {
@@ -125,56 +130,108 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      color: var(--black);
+    footer a:hover { color: var(--black); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    @media (max-width: 540px) {
-      header {
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 1.5rem;
-      }
-
-      nav {
-        text-align: left;
-      }
-
-      main {
-        padding: 2rem 1.5rem;
-      }
-
-      footer {
-        padding: 1.5rem;
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-      }
+    @media (max-width: 480px) {
+      header { padding: 1.1rem 1.25rem; }
+      nav { gap: 1.25rem; }
+      footer { padding: 1.1rem 1.25rem; flex-direction: column; gap: 0.35rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">
-      ritmo eterno<br>
-      <span style="color: var(--gray);">— próximamente</span>
-    </div>
+    <a class="logo" href="/">ritmo eterno</a>
     <nav>
-      <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram →</a>
+      <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
     </nav>
   </header>
 
   <main>
-    <div class="center">
-      <h1 class="wordmark">Ritmo Eterno</h1>
-      <p class="tagline">we're not death yet</p>
-      <a class="cta" href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">seguir en instagram</a>
+    <div class="grid">
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/hoodie.jpg" alt="Hoodie" loading="lazy">
+        </div>
+        <div class="product-info">
+          <p class="product-name">hoodie</p>
+          <p class="product-status">sold out</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/tee-blanca.jpg" alt="Tee Blanca" loading="lazy">
+        </div>
+        <div class="product-info">
+          <p class="product-name">tee blanca</p>
+          <p class="product-status">sold out</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/polera-2.jpg" alt="Polera 2" loading="lazy">
+        </div>
+        <div class="product-info">
+          <p class="product-name">polera 2</p>
+          <p class="product-status">sold out</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/tee-goforever.jpg" alt="Tee GoForever" loading="lazy">
+        </div>
+        <div class="product-info">
+          <p class="product-name">tee goforever</p>
+          <p class="product-status">sold out</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/legacy-tee.jpg" alt="Legacy Tee" loading="lazy">
+        </div>
+        <div class="product-info">
+          <p class="product-name">legacy tee</p>
+          <p class="product-status">sold out</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/bandana-roja.jpg" alt="Bandana Roja" loading="lazy">
+        </div>
+        <div class="product-info">
+          <p class="product-name">bandana roja</p>
+          <p class="product-status">sold out</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/bandana-psycho.jpg" alt="Bandana Psycho" loading="lazy">
+        </div>
+        <div class="product-info">
+          <p class="product-name">bandana psycho</p>
+          <p class="product-status">sold out</p>
+        </div>
+      </div>
+
     </div>
   </main>
 
   <footer>
     <span>ritmoeterno.com</span>
+    <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram →</a>
     <span>© 2026</span>
   </footer>
 
