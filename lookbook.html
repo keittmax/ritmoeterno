@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lookbook — ritmoeterno</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #fff;
+      color: #111;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .logo {
+      display: inline-block;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+    }
+
+    nav a:hover { color: #999; }
+    nav a.active { color: #999; }
+
+    /* ── Lookbook ── */
+    .lookbook {
+      padding: 2rem 0 6rem;
+    }
+
+    .lookbook-photo {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      line-height: 0;
+    }
+
+    .lookbook-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* alternating narrow + wide for rhythm */
+    .lookbook-photo.narrow {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .lookbook-photo.offset-left {
+      width: 65%;
+      margin-left: 0;
+    }
+
+    .lookbook-photo.offset-right {
+      width: 65%;
+      margin-left: auto;
+    }
+
+    .spacer {
+      height: 4rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+
+    footer a { color: #bbb; text-decoration: none; }
+    footer a:hover { color: #111; }
+
+    .footer-symbol {
+      display: block;
+      margin: 0 auto 1rem;
+      height: 18px;
+      width: auto;
+      opacity: 0.35;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .lookbook-photo.narrow,
+      .lookbook-photo.offset-left,
+      .lookbook-photo.offset-right {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="/"><img src="images/wordmark.png" alt="ritmoeterno"></a>
+    <nav>
+      <a href="/">shop</a>
+      <a href="/lookbook.html" class="active">lookbook</a>
+      <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
+    </nav>
+  </header>
+
+  <main class="lookbook">
+
+    <div class="lookbook-photo">
+      <img src="images/lookbook/lb-01.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo offset-right">
+      <img src="images/lookbook/lb-02.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo">
+      <img src="images/lookbook/lb-03.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo offset-left">
+      <img src="images/lookbook/lb-04.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo narrow">
+      <img src="images/lookbook/lb-05.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo">
+      <img src="images/lookbook/lb-06.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo offset-left">
+      <img src="images/lookbook/lb-07.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo offset-right">
+      <img src="images/lookbook/lb-08.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo">
+      <img src="images/lookbook/lb-09.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="lookbook-photo narrow">
+      <img src="images/lookbook/lb-10.jpg" alt="" loading="lazy">
+    </div>
+
+  </main>
+
+  <footer>
+    <img class="footer-symbol" src="images/logo-symbol.png" alt="">
+    <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
+    &nbsp;·&nbsp; © 2026 ritmoeterno
+  </footer>
+
+</body>
+</html>
