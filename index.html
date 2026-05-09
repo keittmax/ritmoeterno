@@ -100,6 +100,57 @@
       color: #999;
     }
 
+    /* ── Newsletter ── */
+    .newsletter {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      border-top: 1px solid #eee;
+    }
+
+    .newsletter-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: #999;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .newsletter-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .newsletter-row input {
+      flex: 1;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid #ddd;
+      border-right: none;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      outline: none;
+      color: #111;
+    }
+
+    .newsletter-row input::placeholder { color: #ccc; }
+    .newsletter-row input:focus { border-color: #111; }
+
+    .newsletter-row button {
+      padding: 0.6rem 1rem;
+      background: #111;
+      color: #fff;
+      border: 1px solid #111;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+    }
+
+    .newsletter-row button:hover { opacity: 0.75; }
+
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -186,6 +237,16 @@
 
     </div>
   </main>
+
+  <section class="newsletter">
+    <form action="https://formspree.io/f/mqengezq" method="POST">
+      <p class="newsletter-label">para no perderte nada.</p>
+      <div class="newsletter-row">
+        <input type="email" name="email" placeholder="tu email" required>
+        <button type="submit">ok</button>
+      </div>
+    </form>
+  </section>
 
   <footer>
     <img class="footer-symbol" src="images/logo-symbol.png" alt="">
