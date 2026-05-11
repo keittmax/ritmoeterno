@@ -90,9 +90,8 @@
       background: none; border: none; cursor: pointer;
       font-family: inherit; font-size: 0.68rem;
       letter-spacing: 0.12em; color: #111; padding: 0;
-      opacity: 0.4; transition: opacity 0.2s;
     }
-    .theme-toggle:hover { opacity: 1; }
+    .theme-toggle:hover { color: #999; }
 
     body.dark { background: #111; color: #f0f0f0; }
     body.dark .logo img { filter: invert(1); }
@@ -152,7 +151,7 @@
       <a href="/almanac.html">almanac</a>
       <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
 
-      <button class="theme-toggle" id="theme-toggle" aria-label="toggle theme">○</button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="toggle theme">666</button>
     </nav>
   </header>
   <div class="ticker">
@@ -179,12 +178,9 @@
   <script>
   (function(){
     var b = document.body, t = document.getElementById('theme-toggle');
-    function sync(){ t.textContent = b.classList.contains('dark') ? '●' : '○'; }
-    sync();
     t.addEventListener('click', function(){
       b.classList.toggle('dark');
       localStorage.setItem('theme', b.classList.contains('dark') ? 'dark' : 'light');
-      sync();
     });
   })();
   </script>
