@@ -45,6 +45,32 @@
     }
 
     nav a:hover { color: #999; }
+    /* ── Ticker ── */
+    .ticker {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      overflow: hidden;
+      padding: 0.45rem 0;
+    }
+
+    .ticker-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker 18s linear infinite;
+    }
+
+    .ticker-segment {
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      color: #999;
+      padding-right: 3rem;
+      flex-shrink: 0;
+    }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     nav a.active { color: #999; }
 
     /* ── Lookbook ── */
@@ -128,6 +154,13 @@
       <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
     </nav>
   </header>
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="ticker-segment">estado actual: reviviendo esto &nbsp;·&nbsp; estado actual: reviviendo esto &nbsp;·&nbsp; estado actual: reviviendo esto &nbsp;·&nbsp; estado actual: reviviendo esto &nbsp;·&nbsp;</span>
+      <span class="ticker-segment">estado actual: reviviendo esto &nbsp;·&nbsp; estado actual: reviviendo esto &nbsp;·&nbsp; estado actual: reviviendo esto &nbsp;·&nbsp; estado actual: reviviendo esto &nbsp;·&nbsp;</span>
+    </div>
+  </div>
+
 
   <main class="lookbook">
 
