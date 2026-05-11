@@ -142,9 +142,66 @@
         margin-left: 0;
       }
     }
+
+    /* ── Dark mode ── */
+    .theme-toggle {
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 0.68rem;
+      letter-spacing: 0.12em; color: #111; padding: 0;
+      opacity: 0.4; transition: opacity 0.2s;
+    }
+    .theme-toggle:hover { opacity: 1; }
+
+    body.dark { background: #111; color: #f0f0f0; }
+    body.dark .logo img { filter: invert(1); }
+    body.dark .footer-symbol { filter: invert(1); }
+    body.dark nav a { color: #f0f0f0; }
+    body.dark nav a:hover { color: #777; }
+    body.dark nav a.active { color: #555; }
+    body.dark .theme-toggle { color: #f0f0f0; }
+    body.dark .ticker { border-color: #222; }
+    body.dark .ticker-segment { color: #777; }
+    body.dark footer { border-color: #222; color: #444; }
+    body.dark footer a { color: #444; }
+    body.dark footer a:hover { color: #f0f0f0; }
+    body.dark h1 { color: #f0f0f0; }
+    body.dark p { color: #bbb; }
+    body.dark .post-date { color: #555; }
+    body.dark .page-title { color: #555; border-color: #222; }
+    body.dark .post-item { border-color: #222; }
+    body.dark .post-title a { color: #f0f0f0; }
+    body.dark .post-title a:hover { color: #777; }
+    body.dark .post-excerpt { color: #777; }
+    body.dark .post-link { color: #666; }
+    body.dark .post-link:hover { color: #f0f0f0; }
+    body.dark .section-head { color: #555; }
+    body.dark .caption { color: #666; border-color: #222; }
+    body.dark .nota { color: #666; }
+    body.dark .back { color: #666; }
+    body.dark .back:hover { color: #f0f0f0; }
+    body.dark .playlist-link { color: #666; border-color: #222; }
+    body.dark .playlist-link:hover { color: #f0f0f0; }
+    body.dark .product-name { color: #f0f0f0; }
+    body.dark .product-status { color: #444; }
+    body.dark .size-btn { border-color: #2a2a2a; color: #999; }
+    body.dark .size-btn:hover:not(.agotado) { border-color: #f0f0f0; color: #f0f0f0; }
+    body.dark .size-btn.selected { background: #f0f0f0; color: #111; border-color: #f0f0f0; }
+    body.dark .size-btn.agotado { color: #333; border-color: #1e1e1e; }
+    body.dark .buy-btn:not(.agotado) { background: #f0f0f0; color: #111; }
+    body.dark .buy-btn.agotado { background: #1e1e1e; color: #444; }
+    body.dark .newsletter { border-color: #222; }
+    body.dark .newsletter-label { color: #555; }
+    body.dark .newsletter-row input { border-color: #2a2a2a; background: #1a1a1a; color: #f0f0f0; }
+    body.dark .newsletter-row input::placeholder { color: #444; }
+    body.dark .newsletter-row button { background: #f0f0f0; color: #111; border-color: #f0f0f0; }
+    body.dark .size-label { color: #777; }
+    body.dark .size-nota { color: #555; }
+    body.dark th, body.dark td { border-color: #222; color: #999; }
+    body.dark .product-desc { color: #999; }
+    body.dark .product-price { color: #ccc; }
   </style>
 </head>
-<body>
+<body><script>if(localStorage.getItem("theme")==="dark")document.body.classList.add("dark");</script>
 
   <header>
     <a class="logo" href="/"><img src="images/wordmark.png" alt="ritmoeterno"></a>
@@ -153,6 +210,8 @@
       <a href="/lookbook.html" class="active">lookbook</a>
       <a href="/almanac.html">almanac</a>
       <a href="https://www.instagram.com/ritmoeterno/" target="_blank" rel="noopener">instagram</a>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="toggle theme">○</button>
     </nav>
   </header>
   <div class="ticker">
@@ -237,5 +296,17 @@
     &nbsp;·&nbsp; © 2026 ritmoeterno
   </footer>
 
+  <script>
+  (function(){
+    var b = document.body, t = document.getElementById('theme-toggle');
+    function sync(){ t.textContent = b.classList.contains('dark') ? '●' : '○'; }
+    sync();
+    t.addEventListener('click', function(){
+      b.classList.toggle('dark');
+      localStorage.setItem('theme', b.classList.contains('dark') ? 'dark' : 'light');
+      sync();
+    });
+  })();
+  </script>
 </body>
 </html>
