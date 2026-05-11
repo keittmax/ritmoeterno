@@ -117,6 +117,14 @@
     body.dark th, body.dark td { border-color: #222; color: #999; }
     body.dark .product-desc { color: #999; }
     body.dark .product-price { color: #ccc; }
+
+    @media (min-width: 1024px) {
+      html { font-size: 18px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { gap: 1rem; font-size: 0.6rem; letter-spacing: 0.06em; }
+    }
   </style>
 </head>
 <body><script>if(localStorage.getItem("theme")==="dark")document.body.classList.add("dark");</script>
